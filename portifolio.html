@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/portifilio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="css/butao.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Meu portifolío</title>
+</head>
+<body>
+    <header class="header fixed">
+        <div class="header-links">
+            <div class="profile-pic">
+                <img src="Eu.PNG" alt="">
+            </div>
+            <a href="#section1">Home</a>
+            <a href="#section2">Portifolío</a>
+            <a href="#section3">Sobre</a>       
+        </div>
+    </header>
+    
+    <section id="section1">
+        <main class="parallax">
+            <div class="gif-container">
+                <div class="gif">
+                  <img class="gif__astronauta" src="https://media.giphy.com/media/3OXc5iM4VybLzKAoBR/giphy.gif" alt="GIF1">
+                </div>
+                <div class="gif">
+                  <img class="gif__black" src="https://media.giphy.com/media/u9K8PUFussrbFbaze0/giphy.gif" alt="GIF2">
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="content">
+                    <p class="text">
+                        Olá, Eu sou <br>
+                        Allan Diego.<br>
+                        Desenvolvedor Front-End. <br>
+                        <br>
+                    </p>
+                    <a href="https://www.linkedin.com/in/allan-lima-585303237/">
+                        <button type="button" class="btn">
+                        <strong>LINKEDIN</strong>
+                        <div id="container-stars">
+                          <div id="stars"></div>
+                        </div>
+                      
+                        <div id="glow">
+                          <div class="circle"></div>
+                          <div class="circle"></div>
+                        </div>
+                        </button>
+                    </a>
+                </div>
+              </div>
+        </main>
+        
+    </section>
+        
+        <script>
+            $(window).on('load', function() {
+                $(".header-links a").each(function(i) {
+                    $(this).delay(500 * i).fadeIn(1000);
+                });
+            });
+        </script>
+
+    <section id="section2">
+        <main class="parallax">
+          <h2>Meu Portifólio</h2>
+            <div class="grid-container">
+                <a class="grid-item"></a>
+                <a class="grid-item"></a>
+                <a class="grid-item"></a>
+                <a class="grid-item"></a>
+                <a class="grid-item"></a>
+                <a class="grid-item"></a>
+            </div>
+          <script>
+            const gridItems = document.querySelectorAll('.grid-item');
+                gridItems.forEach(gridItem => {
+                    gridItem.addEventListener('mouseover', () => {
+                        gridItem.classList.add('active');
+                    });
+
+                    gridItem.addEventListener('mouseout', () => {
+                        gridItem.classList.remove('active');
+                    });
+                });
+          </script>
+        </main>
+    </section>
+
+    <section id="section3" class="card">
+        <h2>Sobre</h2>
+        <p class="p">"Sou um profissional iniciante na área de Front End, e estou começando a me aventurar nesse universo fascinante da tecnologia. Possuo habilidades em HTML e CSS, e estou trabalhando para aprimorar minhas habilidades em JavaScript. Também possuo conhecimentos em linguagem C, o que me ajuda a entender melhor os conceitos de programação. Estou ansioso para aprender mais e crescer nessa área."</p>
+    </section>
+    
+
+    <footer class="parallax">
+        <a href="https://www.instagram.com/allan_diego01/" target="_blank" class="icon tilt"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/allan-lima-585303237/" target="_blank" class="icon tilt"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.whatsapp.com/" target="_blank" class="icon tilt"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://github.com/allanzao" target="_blank" class="icon tilt"><i class="fab fa-github"></i></a>
+    </footer>
+      
+
+    <script>
+        $(document).ready(function()
+        {
+            $('a[href^="#"]').on('click',function (e) 
+            {
+                e.preventDefault();
+      
+                var target = this.hash;
+                var $target = $(target);
+      
+                $('html, body').stop().animate({
+                    'scrollTop': $target.offset().top
+                }, 900, 'swing', function () {
+                window.location.hash = target;
+                });
+            });
+        });
+    </script>
+    
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+         if (scrollTop > header.offsetTop) {
+            header.classList.add('fixed');
+         } else {
+            header.classList.remove('fixed');
+            }
+        });
+    </script>
+</body>
+</html>
