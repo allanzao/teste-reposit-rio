@@ -62,14 +62,7 @@
         
     </section>
         
-        <script>
-            $(window).on('load', function() {
-                $(".header-links a").each(function(i) {
-                    $(this).delay(500 * i).fadeIn(1000);
-                });
-            });
-        </script>
-
+      
     <section id="section2">
         <main class="parallax">
           <h2>Meu Portifólio</h2>
@@ -81,18 +74,7 @@
                 <a class="grid-item"></a>
                 <a class="grid-item"></a>
             </div>
-          <script>
-            const gridItems = document.querySelectorAll('.grid-item');
-                gridItems.forEach(gridItem => {
-                    gridItem.addEventListener('mouseover', () => {
-                        gridItem.classList.add('active');
-                    });
-
-                    gridItem.addEventListener('mouseout', () => {
-                        gridItem.classList.remove('active');
-                    });
-                });
-          </script>
+         
         </main>
     </section>
 
@@ -109,8 +91,27 @@
         <a href="https://github.com/allanzao" target="_blank" class="icon tilt"><i class="fab fa-github"></i></a>
     </footer>
       
+  
+     <script> 
+          // Como você utiliza os script separado , você nao precisa deixar separado por cada section do HML , não deixando ele todo sujo 
+      // o interessante seria você separá em arquivos diferente e fazer a importação aqui para seu html 
+            $(window).on('load', function() {
+                $(".header-links a").each(function(i) {
+                    $(this).delay(500 * i).fadeIn(1000);
+                });
+            });
+   
+            const gridItems = document.querySelectorAll('.grid-item');
+                gridItems.forEach(gridItem => {
+                    gridItem.addEventListener('mouseover', () => {
+                        gridItem.classList.add('active');
+                    });
 
-    <script>
+                    gridItem.addEventListener('mouseout', () => {
+                        gridItem.classList.remove('active');
+                    });
+                });
+        
         $(document).ready(function()
         {
             $('a[href^="#"]').on('click',function (e) 
@@ -127,9 +128,6 @@
                 });
             });
         });
-    </script>
-    
-    <script>
         window.addEventListener('scroll', function() {
             const header = document.querySelector('.header');
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
